@@ -4,7 +4,8 @@
       <h1 class="display-4">Welcome to the Loan Application Portal</h1>
       <p class="lead">Get started on your journey to financial support!</p>
       <% if user_signed_in? %>
-        <%= link_to 'Loan Application', new_loan_path, class: 'btn btn-success btn-lg' %>
+      <% loan_button_color = user_signed_in? ? 'btn-success' : 'btn-primary' %>
+      <%= link_to 'Loan Application', new_loan_path, class: "btn btn-lg #{loan_button_color}" %>
       <% end %>
     </div>
   </div>

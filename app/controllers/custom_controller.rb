@@ -7,7 +7,4 @@ class CustomController < Devise::SessionsController
           end
         end
      end
-
-     
-
 end
