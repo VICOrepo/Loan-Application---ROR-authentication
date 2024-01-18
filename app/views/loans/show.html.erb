@@ -1,0 +1,45 @@
+
+<body style="background-color: rgb(165, 236, 192)">
+    <div class="container mt-5">
+      <h1 class="text-center">User Details</h1>
+    
+      <div class="card">
+        <div class="card-body">
+    
+          <p class="card-text"><strong>Loan Purpose: </strong><%= @loan.purpose %></p>
+          <p class="card-text"><strong>Loan Amount: </strong><%= @loan.amount %></p>
+          <p class="card-text"><strong>First Name: </strong><%= @loan.name %> </p>
+          <p class="card-text"><strong>Middle Name: </strong><%= @loan.middle_name %> </p>
+          <p class="card-text"><strong>Last Name: </strong><%= @loan.last_name %> </p>
+          <p class="card-text"><strong>Date of Birth: </strong><%= @loan.date_of_birth %> </p>
+          <p class="card-text"><strong>Email: </strong><%= @loan.email %></p>
+          <p class="card-text"><strong>Phone Number: </strong><%= @loan.phone_number %></p>
+          <p class="card-text"><strong>Home Phone Number: </strong><%= @loan.home_number %> </p>
+          <p class="card-text"><strong>SSN: </strong><%= @loan.ssn %></p>
+          <p class="card-text"><strong>Street Address 1: </strong><%= @loan.address %></p>
+          <p class="card-text"><strong>Street Address 2: </strong><%= @loan.street_address2 %> </p>
+          <p class="card-text"><strong>City: </strong><%= @loan.city %> </p>
+          <p class="card-text"><strong>State: </strong><%= @loan.state %> </p>
+          <p class="card-text"><strong>ZIP: </strong><%= @loan.zip %> </p>
+          <p class="card-text"><strong>Residence Type: </strong><%= @loan.residence_type %> </p>
+          <p class="card-text"><strong>Annual Income: </strong><%= @loan.annual_income %></p>
+          <p class="card-text"><strong>Employer Name: </strong><%= @loan.employer_name %></p>
+          <p class="card-text"><strong>Employer Phone Number: </strong><%= @loan.employer_phone %></p>
+    
+          <!-- Links and buttons -->
+          <div class="mt-3">
+            <%= link_to 'Edit', edit_loan_path(@loan), class: 'btn btn-primary mr-2' %>
+            <%= link_to 'Create New Application', new_loan_path, class: 'btn btn-success mr-2' %>
+            <%= link_to 'All Users Details', loans_path, class: 'btn btn-info' %>
+          </div>
+    
+          <div class="mt-3">
+            <%= button_to 'Delete', loan_path(@loan), method: :delete, class: 'btn btn-danger', data: { confirm: 'Are you sure you want to delete this user?' } %> 
+          </div>
+          
+        </div>
+      </div>
+    </div>
+  </body>
+  
+  

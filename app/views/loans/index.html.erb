@@ -1,0 +1,75 @@
+
+<body style="background-color: rgb(165, 236, 192)">
+    <div class="container-fluid mt-4">
+      <h1 class="text-center">Users Details Page</h1>
+      <div class="table-responsive">
+        <table class="table table-bordered table-hover">
+          <thead class="thead-dark">
+            <tr>
+              <th class="text-center">Loan Purpose</th>
+              <th class="text-center">Loan Amount</th>
+              <th class="text-center">First Name</th>
+              <th class="text-center">Middle Name</th>
+              <th class="text-center">Last Name</th>
+              <th class="text-center">Date of Birth</th>
+              <th class="text-center">Email</th>
+              <th class="text-center">Phone Number</th>
+              <th class="text-center">Home Phone Number</th>
+              <th class="text-center">SSN</th>
+              <th class="text-center">Street Address 1</th>
+              <th class="text-center">Street Address 2</th>
+              <th class="text-center">City</th>
+              <th class="text-center">State</th>
+              <th class="text-center">ZIP</th>
+              <th class="text-center">Residence Type</th>
+              <th class="text-center">Annual Income</th>
+              <th class="text-center">Employer Name</th>
+              <th class="text-center">Employer Phone Number</th>
+              <th colspan="3" class="text-center">Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @loans.each do |loan| %>
+              <tr>
+                <td><%= loan.purpose %></td>
+                <td><%= loan.amount %></td>
+                <td><%= loan.name %></td>
+                <td><%= loan.middle_name %></td>
+                <td><%= loan.last_name %></td>
+                <td><%= loan.date_of_birth %></td>
+                <td><%= loan.email %></td>
+                <td><%= loan.phone_number %></td>
+                <td><%= loan.home_number %></td>
+                <td><%= loan.ssn %></td>
+                <td><%= loan.address %></td>
+                <td><%= loan.street_address2 %></td>
+                <td><%= loan.city %></td>
+                <td><%= loan.state %></td>
+                <td><%= loan.zip %></td>
+                <td><%= loan.residence_type %></td>
+                <td><%= loan.annual_income %></td>
+                <td><%= loan.employer_name %></td>
+                <td><%= loan.employer_phone %></td>
+                <td><%= link_to 'Show', loan_path(loan), class: 'btn btn-info btn-sm' %></td>
+                <td><%= link_to 'Edit', edit_loan_path(loan), class: 'btn btn-warning btn-sm' %></td>
+                <td>
+                  <%= button_to 'Delete', loan_path(loan),
+                                method: :delete,
+                                onclick: "return confirm('Are you sure you want to delete this article?');",
+                                class: 'btn btn-danger btn-sm' %>
+                </td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </body>
+  
+  <br/>
+  <br/>
+  
+  <div class="mt-3" style="margin-left: 8px;">
+    <%= link_to 'Home Page', root_path, class: 'btn btn-primary mr-2' %>
+    <%= link_to 'Create New Application', new_loan_path, class: 'btn btn-success mr-2' %>
+  </div>

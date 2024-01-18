@@ -1,0 +1,26 @@
+<body>
+  <div class="container-fluid mt-5">
+    <div class="jumbotron text-center">
+      <h1 class="display-4">Welcome to the Loan Application Portal</h1>
+      <p class="lead">Get started on your journey to financial support!</p>
+      <% if user_signed_in? %>
+        <%= link_to 'Loan Application', new_loan_path, class: 'btn btn-success btn-lg' %>
+      <% end %>
+    </div>
+  </div>
+
+  <footer class="footer mt-5 text-green">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12 text-center">
+          <p>&copy; 2024 Loan Application Portal</p>
+          <p>Created by Viral</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</body>

@@ -1,0 +1,110 @@
+@import "bootstrap";
+@import "bootstrap-datepicker3";
+
+/* You can add more styling as needed */
+
+.flash-notice {
+  background-color: #a9be32; /* This is a shade of green. You can adjust the color if needed. */
+  color: white; /* Set text color to white for better visibility against green background */
+  padding: 15px; /* Optional: Add some padding for better appearance */
+  border-radius: 5px; /* Optional: Add rounded corners */
+}
+.flash-alert {
+  background-color: #dc3545; /* This is a shade of green. You can adjust the color if needed. */
+  color: white; /* Set text color to white for better visibility against green background */
+  padding: 15px; /* Optional: Add some padding for better appearance */
+  border-radius: 5px; /* Optional: Add rounded corners */
+}
+
+/* Style for submit button */
+.actions {
+  text-align: center;
+  margin-top: 20px;
+}
+
+input[type="submit"] {
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s;
+}
+
+input[type="submit"]:hover {
+  background-color: #0056b3;
+}
+
+.nav-item {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  z-index: 1;
+}
+
+.nav-item:hover .dropdown-menu {
+  display: block;
+}
+
+.dropdown-item {
+  display: block;
+  padding: 0.5rem 1rem;
+  text-decoration: none;
+  color: #333;
+}
+
+.dropdown-item:hover {
+  background-color: #f8f9fa;
+}
+
+.navbar {
+  background-color: #4bad4b !important;
+}
+
+.nav-link {
+  color: white !important;
+}
+
+#logo {
+  float: left;
+  font-size: 1.7em;
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: -1px;
+  font-weight: bold;
+}
+
+body {
+  overflow-x: hidden;
+}
+body {
+  background-color: #f8f9fa;
+}
+.jumbotron {
+  background: linear-gradient(to right, #2ad44f, #227542);
+  color: #fff;
+  padding: 100px 0;
+}
+.jumbotron h1 {
+  font-size: 3.5rem;
+  font-weight: bold;
+}
+.jumbotron p {
+  font-size: 1.5rem;
+}
+.footer {
+  background-color: #1e5027;
+  color: #ecf0f1;
+  padding: 20px 0;
+}
+
+
+
