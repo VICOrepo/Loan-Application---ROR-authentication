@@ -8,6 +8,8 @@
   
   <% unless current_user.admin? %>
     <%= link_to 'Loan Application', new_loan_path, class: "btn btn-lg #{loan_button_color}" %>
+    <%= link_to 'Loan Details', loans_path, class: "btn btn-lg #{loan_button_color}" %>
+
   <% end %>
 
   <% if current_user.admin? %>

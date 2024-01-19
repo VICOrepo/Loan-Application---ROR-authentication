@@ -1,5 +1,6 @@
 class User < ApplicationRecord
 
+  has_many :loans
   def admin?
     user_role == 2
   end

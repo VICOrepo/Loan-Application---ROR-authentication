@@ -5,25 +5,28 @@ class LoansController < ApplicationController
     end
   
     def index
-      @loans = Loan.all
+      if current_user&.admin?
+        @loans = Loan.all
+      else
+        @loans = current_user.loans
+      end
     end
   
     def new
-      @loan = Loan.new
+      @loan = current_user.loans.build
     end
   
     def edit
     end
   
     def create
-      @loan = Loan.new(loan_params)
-      if @loan.save
-        flash[:notice] = "Loan was created successfully."
-        redirect_to @loan
-      else
-        # Redirect to the new action to display the form with errors
-        redirect_to new_loan_path, alert: @loan.errors.full_messages.join(", ")
-      end
+      @loan = current_user.loans.build(loan_params)
+    if @loan.save
+      flash[:notice] = "Loan was created successfully."
+      redirect_to @loan
+    else
+      redirect_to new_loan_path, alert: @loan.errors.full_messages.join(", ")
+    end
     end
   
     def update
