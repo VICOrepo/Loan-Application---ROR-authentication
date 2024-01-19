@@ -1,9 +1,9 @@
 
-<body style="background-color: rgb(165, 236, 192)">
+<body style="background-color: rgb(193, 221, 204)">
     <div class="container-fluid mt-4">
       <h1 class="text-center">Users Details Page</h1>
       <div class="table-responsive">
-        <table class="table table-bordered table-hover">
+        <table class="table table-bordered table-hover ">
           <thead class="thead-dark">
             <tr>
               <th class="text-center">Loan Purpose</th>
@@ -51,7 +51,9 @@
                 <td><%= loan.employer_name %></td>
                 <td><%= loan.employer_phone %></td>
                 <td><%= link_to 'Show', loan_path(loan), class: 'btn btn-info btn-sm' %></td>
+                <% if current_user && current_user.admin? %>
                 <td><%= link_to 'Edit', edit_loan_path(loan), class: 'btn btn-warning btn-sm' %></td>
+                <% end %>
                 <td>
                   <%= button_to 'Delete', loan_path(loan),
                                 method: :delete,
@@ -81,3 +83,4 @@
   </div>
   
   <br>
+ 

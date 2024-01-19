@@ -5,11 +5,18 @@ class UsersController < ApplicationController
     @users = User.all
   end
   
-  def destroy
+ 
+  def destroy 
     @user = User.find(params[:id])
-    @user.destroy
-    redirect_to users_path, notice: 'User was successfully deleted.'
-  end
+
+    if @user.loans.any?
+        redirect_to users_path, flash: { alert: '
+        If a user has an active loan request, they cannot be deleted.' }
+    else
+        @user.destroy
+        redirect_to users_path, flash: { notice: 'User was successfully deleted.' }
+    end
+end
 
   def make_admin
     @user = User.find(params[:id])

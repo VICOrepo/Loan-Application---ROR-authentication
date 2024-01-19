@@ -16,6 +16,7 @@ gem "sqlite3", "~> 1.4"
 gem 'bootstrap', '~> 5.3.2'
 
 gem 'devise'
+gem 'letter_opener'
 
 # pegination
 gem 'will_paginate'

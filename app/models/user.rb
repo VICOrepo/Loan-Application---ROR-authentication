@@ -4,6 +4,7 @@ class User < ApplicationRecord
   def admin?
     user_role == 2
   end
+  
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
