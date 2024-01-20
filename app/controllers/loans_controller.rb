@@ -22,7 +22,7 @@ class LoansController < ApplicationController
     def create
       @loan = current_user.loans.build(loan_params)
     if @loan.save
-      flash[:notice] = "Loan was created successfully."
+      flash[:notice] = "Application has been created successfully."
       redirect_to @loan
     else
       redirect_to new_loan_path, alert: @loan.errors.full_messages.join(", ")
@@ -31,7 +31,7 @@ class LoansController < ApplicationController
   
     def update
       if @loan.update(loan_params)
-        flash[:notice] = "User was updated successfully."
+        flash[:notice] = "Application has been updated successfully."
         redirect_to @loan
       else
         redirect_to edit_loan_path, alert: @loan.errors.full_messages.join(", ")
@@ -41,6 +41,7 @@ class LoansController < ApplicationController
     def destroy
       @loan = Loan.find(params[:id])
       @loan.destroy
+      flash[:alert] = "Application has been updated successfully." 
       redirect_to loans_path
     end
   

@@ -8,8 +8,8 @@ Rails.application.routes.draw do
   
   resources :loans
   resources :users, only: [:index, :destroy] do
-  member do
-    post 'make_admin'
-  end
-end
+    member do
+      post 'make_admin'
+    end
+ end
 end
