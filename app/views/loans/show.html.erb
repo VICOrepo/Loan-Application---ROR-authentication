@@ -27,21 +27,18 @@
           <p class="card-text"><strong>Employer Phone Number: </strong><%= @loan.employer_phone %></p>
     
           <!-- Links and buttons -->
-          <!-- Links and buttons -->
           <div class="mt-3">
+            <%= link_to 'Back', loans_path, class: 'btn btn-dark mr-2' %>
             <%= link_to 'Edit', edit_loan_path(@loan), class: 'btn btn-primary mr-2' if user_signed_in? %>
-            <%= link_to 'Create New Application', new_loan_path, class: 'btn btn-success mr-2' if user_signed_in? && !current_user.admin? %>
-            <%= link_to 'All Users Details', loans_path, class: 'btn btn-info mr-2' if user_signed_in? && current_user.admin? %>
+            <!-- <%= link_to 'Create New Application', new_loan_path, class: 'btn btn-success mr-2' if user_signed_in? && !current_user.admin? %> -->
+            
           </div>
 
-          <% if user_signed_in? && current_user.admin? %>
+          <!-- <% if user_signed_in? && current_user.admin? %>
             <div class="mt-3">
               <%= button_to 'Delete', loan_path(@loan), method: :delete, class: 'btn btn-danger',onclick: "return confirm('Are you sure you want to delete this loan application?');" %>
             </div>
-          <% end %>
-
-
-          
+          <% end %> -->
         </div>
       </div>
     </div>

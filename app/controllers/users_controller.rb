@@ -14,7 +14,7 @@ class UsersController < ApplicationController
         If a user has an active loan request, they cannot be deleted.' }
     else
         @user.destroy
-        redirect_to users_path, flash: { notice: 'User was successfully deleted.' }
+        redirect_to users_path, flash: { notice: 'User has been successfully deleted.' }
     end
 end
 

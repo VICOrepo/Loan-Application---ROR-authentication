@@ -41,7 +41,7 @@ class LoansController < ApplicationController
     def destroy
       @loan = Loan.find(params[:id])
       @loan.destroy
-      flash[:alert] = "Application has been updated successfully." 
+      flash[:alert] = "Application has been deleted successfully." 
       redirect_to loans_path
     end
   

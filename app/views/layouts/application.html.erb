@@ -18,11 +18,9 @@
     
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
-          <li class="nav-item <%= 'active' if current_page?(root_path) %>">
-            <%= link_to "Home", root_path, class: "nav-link" %>
-          </li>
+         
           <li class="nav-item <%= 'active' if current_page?(about_path) %>">
-            <%= link_to "About Page", about_path, class: "nav-link" %>
+            <%= link_to "About Us", about_path, class: "nav-link" %>
           </li>
         </ul>
     
@@ -43,8 +41,9 @@
         <% if user_signed_in? %>
           <li class="nav-item">
             <span class="navbar-text" style="color: white; font-weight: bold; margin-left: 550px;">
-              Empower your finances!, <%= current_user.email.split('@').first  %> 
+              <%= current_user.user_role == 2 ? 'Admin' : 'Applicant' %> - Empower your finances!, <%= current_user.email.split('@').first %>
             </span>
+            
           </li>
         <% end %>        
         </ul>
@@ -54,7 +53,8 @@
     
     <% flash.each do |name, msg| %> <% if msg.is_a?(String) %>
     <div class="flash-<%= name %>"><%= msg %></div>
-    <% end %> <% end %> <%= yield %>
+    <% end %> <% end %>
+     <%= yield %>
 
 
     <!-- Add these lines to include Flatpickr and Bootstrap CSS -->

@@ -24,16 +24,42 @@
   margin-right: 10px;
 }
 .flash-notice {
-  background-color: #0ca821; /* This is a shade of green. You can adjust the color if needed. */
-  color: white; /* Set text color to white for better visibility against green background */
-  padding: 15px; /* Optional: Add some padding for better appearance */
-  border-radius: 5px; /* Optional: Add rounded corners */
+  font-size: 18px;
+  color: #222c21; /* Bootstrap's danger color */
+  background-color: #adf796; /* Bootstrap's danger background color */
+  padding: 15px;
+  border-radius: 5px;
+  margin-top: 20px;
 }
+
+.flash-notice em {
+  font-style: normal;
+  font-weight: bold;
+  color: #58e944; /* Darker shade of red for emphasis */
+}
+
+
+
 .flash-alert {
-  background-color: #dc3545; /* This is a shade of green. You can adjust the color if needed. */
-  color: white; /* Set text color to white for better visibility against green background */
-  padding: 15px; /* Optional: Add some padding for better appearance */
-  border-radius: 5px; /* Optional: Add rounded corners */
+  font-size: 18px;
+  color: #d9534f; /* Bootstrap's danger color */
+  background-color: #f2dede; /* Bootstrap's danger background color */
+  padding: 15px;
+  border-radius: 5px;
+  margin-top: 20px;
+}
+.flash-alert em {
+  font-style: normal;
+  font-weight: bold;
+  color: #a94442; /* Darker shade of red for emphasis */
+}
+
+
+/* Hover effect for added interactivity */
+.flash-notice:hover,
+.flash-alert:hover {
+  box-shadow: 0 8px 16px rgba(52, 55, 52, 0.3); /* Larger shadow on hover for added emphasis */
+  transform: translateY(-2px); /* Move the box slightly upward on hover */
 }
 
 /* Style for submit button */
