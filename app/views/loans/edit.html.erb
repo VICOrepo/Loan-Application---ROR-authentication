@@ -2,13 +2,14 @@
 <%= form_with model: @loan, class: "form" do |form| %>
 
 <body style="background-color: rgb(193, 221, 204)">
-  <div class="container">
+  <div class="container mb-5">
     <br>
-  <div class="card">
+  <div class="card mb-5">
    <div class="card-body">
+    
     <div class="row">
       <div class="col-lg-12 text-center">
-        <h3 style="font-weight: bold; margin-bottom: 30px">
+        <h3 class="font-weight-bold mb-4">
           How much do you need?
         </h3>
       </div>
@@ -31,11 +32,11 @@
     </div>
     </div>
     <br>
-    <div class="card">
+    <div class="card mb-5">
       <div class="card-body">
     <div class="row">
       <div class="col-lg-12 text-center">
-          <h3 style="font-weight:bold; margin-bottom: 30px;">Tell Us About Yourself</h3>
+          <h3 class="font-weight-bold mb-4">Tell Us About Yourself</h3>
       </div>
    </div>
    <br>
@@ -107,11 +108,11 @@
       </div>
       </div>
       <br>
-    <div class="card">
+    <div class="card mb-5">
       <div class="card-body">
       <div class="row">
         <div class="col-lg-12 text-center">
-            <h3 style="font-weight:bold; margin-bottom: 30px;">What is your home address</h3>
+            <h3 class="font-weight-bold mb-4">What is your home address</h3>
         </div>
      </div>
 
@@ -130,8 +131,8 @@
       </div>
       <div class="col-lg-4">
         <div class="form-group">
-          <%= form.label :residence_type %> <%= form.text_field :residence_type, class:
-          "form-control", step: 0.01 %>
+          <%= form.label :residence_type, "Residence Type" %>
+          <%= form.select :residence_type, ["Own", "Rent", "Lease"], { prompt: "Select Residence Type" }, class: "custom-select form-control" %>
         </div>
       </div>
     </div>
@@ -163,11 +164,11 @@
    </div>
    </div>
  <br>
- <div class="card">
+ <div class="card mb-5">
   <div class="card-body">
     <div class="row">
       <div class="col-lg-12 text-center">
-          <h3 style="font-weight:bold; margin-bottom: 30px;">How much do you make</h3>
+          <h3 class="font-weight-bold mb-4">How much do you make</h3>
       </div>
     </div>
 <br>

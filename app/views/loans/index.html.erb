@@ -1,12 +1,13 @@
 
 <body style="background-color: rgb(193, 221, 204)">
+
     <div class="container-fluid mt-4">
       
       <% if @loans.any? %>
       <h1 class="text-center">Application Detail</h1>
 
       <div class="table-responsive">
-        <table class="table table-bordered table-hover ">
+        <table id="loans-table" class="table table-bordered table-hover dataTable">
           <thead class="thead-dark">
             <tr>
               <th class="text-center">Loan Purpose</th>
@@ -91,4 +92,19 @@
   </div>
   
   <br>
+  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.25/css/jquery.dataTables.min.css">
+  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.25/css/dataTables.bootstrap.min.css">
+  
+  <!-- Add these lines just before the closing body tag -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"></script>
+  <script src="https://cdn.datatables.net/1.10.25/js/dataTables.bootstrap.min.js"></script>
+  
+  <!-- Add this script at the bottom of the body section -->
+  <script>
+    $(document).ready(function () {
+      $('#loans-table').DataTable();
+    });
+  </script>
+  
 </body>
