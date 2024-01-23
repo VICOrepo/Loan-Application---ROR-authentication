@@ -1,0 +1,15 @@
+# .rubocop.yml
+
+# AllCops:
+#  TargetRubyVersion: 2.7
+
+# Enable/disable cops. Many of the defaults are shown below. Omitted
+# cops are either enabled by default or have no default values.
+
+# Style/Documentation
+#   Enabled: false
+
+# Layout/IndentationWidth:
+#   Enabled: false
+
+# Add your custom configurations and overrides here

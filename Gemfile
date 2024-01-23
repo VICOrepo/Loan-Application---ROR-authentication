@@ -18,6 +18,10 @@ gem 'bootstrap', '~> 5.3.2'
 gem 'devise'
 gem 'letter_opener'
 
+# code analyser
+
+gem 'rubocop', require: false
+
 # pegination
 gem 'will_paginate'
 gem 'bootstrap_pagination'
