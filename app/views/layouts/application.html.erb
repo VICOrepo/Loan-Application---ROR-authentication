@@ -7,6 +7,11 @@
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %> 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_importmap_tags %>
+    <!-- Add these lines to include Flatpickr and Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/themes/material_blue.css" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+<script src="https://cdn.jsdelivr.net/npm/flatpickr/dist/l10n/default.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/flatpickr/dist/themes/material_blue.css"></script>
   </head>
 
   <body>
@@ -18,19 +23,26 @@
     
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
-         
-          <li class="nav-item <%= 'active' if current_page?(about_path) %>">
+          
+          <% if user_signed_in? %>
+            <li class="nav-item">
+              <span class="navbar-text" style="color: rgb(51, 54, 50); font-weight: bold; ">
+                Empower your dreams- <%= current_user.email.split('@').first %>
+              </span>
+            </li>
+          <% end %>        
+          <li class="nav-item <%= 'active' if current_page?(about_path) %>" style="margin-left: 720px;">
             <%= link_to "About Us", about_path, class: "nav-link" %>
           </li>
         </ul>
     
         <% unless user_signed_in? %>
-        <ul class="navbar-nav" style="margin-right: 15px;">
+        <ul class="navbar-nav" >
           <li class="nav-item">
-            <%= link_to "Sign Up", new_user_registration_path, class: "btn btn-success btn-lg nav-link" %>
+            <%= link_to "Register", new_user_registration_path, class: "btn btn-success btn-lg nav-link" %>
           </li>
           <li class="nav-item">
-            <%= link_to "Sign In", new_session_path(User.new), class: "btn btn-success btn-lg nav-link" %>
+            <%= link_to "LogIn", new_session_path(User.new), class: "btn btn-success btn-lg nav-link" %>
           </li>
         </ul>
       <% else %>
@@ -38,14 +50,6 @@
           <li class="nav-item">
             <%= link_to "Sign Out", destroy_user_session_path, method: :delete, class: "btn btn-danger btn-lg nav-link" %>
           </li>
-        <% if user_signed_in? %>
-          <li class="nav-item">
-            <span class="navbar-text" style="color: white; font-weight: bold; margin-left: 550px;">
-              <%= current_user.user_role == 2 ? 'Admin' : 'Applicant' %> - Empower your finances!, <%= current_user.email.split('@').first %>
-            </span>
-            
-          </li>
-        <% end %>        
         </ul>
       <% end %>
       </div>
@@ -57,7 +61,6 @@
      <%= yield %>
 
 
-    <!-- Add these lines to include Flatpickr and Bootstrap CSS -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    
 </body>
 </html>
