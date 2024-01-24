@@ -1,0 +1,467 @@
+@font-face {
+  font-family: Poppins-Regular;
+  src: url(/../fonts/poppins/Poppins-Regular.ttf);
+}
+
+@font-face {
+  font-family: Poppins-Bold;
+  src: url(/../fonts/poppins/Poppins-Bold.ttf);
+}
+
+@font-face {
+  font-family: Poppins-Medium;
+  src: url(/../fonts/poppins/Poppins-Medium.ttf);
+}
+
+@font-face {
+  font-family: Montserrat-Bold;
+  src: url(/../fonts/montserrat/Montserrat-Bold.ttf);
+}
+
+/* line 17, app/assets/stylesheets/main.scss */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* line 22, app/assets/stylesheets/main.scss */
+body,
+html {
+  height: 100%;
+  font-family: Poppins-Regular, sans-serif;
+}
+
+/* line 27, app/assets/stylesheets/main.scss */
+a {
+  font-family: Poppins-Regular;
+  font-size: 14px;
+  line-height: 1.7;
+  color: #666;
+  margin: 0;
+  transition: all 0.4s;
+  -webkit-transition: all 0.4s;
+  -o-transition: all 0.4s;
+  -moz-transition: all 0.4s;
+}
+
+/* line 38, app/assets/stylesheets/main.scss */
+a:focus {
+  outline: none !important;
+}
+
+/* line 41, app/assets/stylesheets/main.scss */
+a:hover {
+  text-decoration: none;
+  color: #57b846;
+}
+
+/* line 45, app/assets/stylesheets/main.scss */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+}
+
+/* line 53, app/assets/stylesheets/main.scss */
+p {
+  font-family: Poppins-Regular;
+  font-size: 14px;
+  line-height: 1.7;
+  color: #666;
+  margin: 0;
+}
+
+/* line 60, app/assets/stylesheets/main.scss */
+ul,
+li {
+  margin: 0;
+  list-style-type: none;
+}
+
+/* line 65, app/assets/stylesheets/main.scss */
+input {
+  outline: none;
+  border: none;
+}
+
+/* line 69, app/assets/stylesheets/main.scss */
+textarea {
+  outline: none;
+  border: none;
+}
+
+/* line 73, app/assets/stylesheets/main.scss */
+textarea:focus,
+input:focus {
+  border-color: transparent !important;
+}
+
+/* line 77, app/assets/stylesheets/main.scss */
+input:focus::-webkit-input-placeholder {
+  color: transparent;
+}
+
+/* line 80, app/assets/stylesheets/main.scss */
+input:focus:-moz-placeholder {
+  color: transparent;
+}
+
+/* line 83, app/assets/stylesheets/main.scss */
+input:focus::-moz-placeholder {
+  color: transparent;
+}
+
+/* line 86, app/assets/stylesheets/main.scss */
+input:focus:-ms-input-placeholder {
+  color: transparent;
+}
+
+/* line 89, app/assets/stylesheets/main.scss */
+textarea:focus::-webkit-input-placeholder {
+  color: transparent;
+}
+
+/* line 92, app/assets/stylesheets/main.scss */
+textarea:focus:-moz-placeholder {
+  color: transparent;
+}
+
+/* line 95, app/assets/stylesheets/main.scss */
+textarea:focus::-moz-placeholder {
+  color: transparent;
+}
+
+/* line 98, app/assets/stylesheets/main.scss */
+textarea:focus:-ms-input-placeholder {
+  color: transparent;
+}
+
+/* line 101, app/assets/stylesheets/main.scss */
+input::-webkit-input-placeholder {
+  color: #999;
+}
+
+/* line 104, app/assets/stylesheets/main.scss */
+input:-moz-placeholder {
+  color: #999;
+}
+
+/* line 107, app/assets/stylesheets/main.scss */
+input::-moz-placeholder {
+  color: #999;
+}
+
+/* line 110, app/assets/stylesheets/main.scss */
+input:-ms-input-placeholder {
+  color: #999;
+}
+
+/* line 113, app/assets/stylesheets/main.scss */
+textarea::-webkit-input-placeholder {
+  color: #999;
+}
+
+/* line 116, app/assets/stylesheets/main.scss */
+textarea:-moz-placeholder {
+  color: #999;
+}
+
+/* line 119, app/assets/stylesheets/main.scss */
+textarea::-moz-placeholder {
+  color: #999;
+}
+
+/* line 122, app/assets/stylesheets/main.scss */
+textarea:-ms-input-placeholder {
+  color: #999;
+}
+
+/* line 125, app/assets/stylesheets/main.scss */
+button {
+  outline: none !important;
+  border: none;
+  background: 0 0;
+}
+
+/* line 130, app/assets/stylesheets/main.scss */
+button:hover {
+  cursor: pointer;
+}
+
+/* line 133, app/assets/stylesheets/main.scss */
+iframe {
+  border: none !important;
+}
+
+/* line 136, app/assets/stylesheets/main.scss */
+.txt1 {
+  font-family: Poppins-Regular;
+  font-size: 13px;
+  line-height: 1.5;
+  color: #999;
+}
+
+/* line 142, app/assets/stylesheets/main.scss */
+.txt2 {
+  font-family: Poppins-Regular;
+  font-size: 13px;
+  line-height: 1.5;
+  color: #666;
+}
+
+/* line 148, app/assets/stylesheets/main.scss */
+.limiter {
+  width: 100%;
+  margin: 0 auto;
+}
+
+/* line 152, app/assets/stylesheets/main.scss */
+.container-login100 {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  padding: 15px;
+  background: #9053c7;
+  background: linear-gradient(-135deg, #c850c0, #4158d0);
+}
+
+/* line 170, app/assets/stylesheets/main.scss */
+.wrap-login100 {
+  width: 960px;
+  background: #fff;
+  border-radius: 10px;
+  overflow: hidden;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding: 177px 130px 33px 95px;
+}
+
+/* line 184, app/assets/stylesheets/main.scss */
+.login100-pic {
+  width: 316px;
+}
+
+/* line 187, app/assets/stylesheets/main.scss */
+.login100-pic img {
+  max-width: 100%;
+}
+
+/* line 190, app/assets/stylesheets/main.scss */
+.login100-form {
+  width: 290px;
+}
+
+/* line 193, app/assets/stylesheets/main.scss */
+.login100-form-title {
+  font-family: Poppins-Bold;
+  font-size: 24px;
+  color: #333;
+  line-height: 1.2;
+  text-align: center;
+  width: 100%;
+  display: block;
+  padding-bottom: 54px;
+}
+
+/* line 203, app/assets/stylesheets/main.scss */
+.wrap-input100 {
+  position: relative;
+  width: 100%;
+  z-index: 1;
+  margin-bottom: 10px;
+}
+
+/* line 209, app/assets/stylesheets/main.scss */
+.input100 {
+  font-family: Poppins-Medium;
+  font-size: 15px;
+  line-height: 1.5;
+  color: #666;
+  display: block;
+  width: 100%;
+  background: #e6e6e6;
+  height: 50px;
+  border-radius: 25px;
+  padding: 0 30px 0 68px;
+}
+
+/* line 221, app/assets/stylesheets/main.scss */
+.focus-input100 {
+  display: block;
+  position: absolute;
+  border-radius: 25px;
+  bottom: 0;
+  left: 0;
+  z-index: -1;
+  width: 100%;
+  height: 100%;
+  box-shadow: 0 0;
+  color: rgba(87, 184, 70, 0.8);
+}
+
+/* line 233, app/assets/stylesheets/main.scss */
+.input100:focus + .focus-input100 {
+  animation: anim-shadow 0.5s ease-in-out forwards;
+}
+
+@keyframes anim-shadow {
+  to {
+    box-shadow: 0 0 70px 25px;
+    opacity: 0;
+  }
+}
+
+/* line 249, app/assets/stylesheets/main.scss */
+.symbol-input100 {
+  font-size: 15px;
+  display: flex;
+  align-items: center;
+  position: absolute;
+  border-radius: 25px;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  padding-left: 35px;
+  pointer-events: none;
+  color: #666;
+  transition: all 0.4s;
+}
+
+/* line 271, app/assets/stylesheets/main.scss */
+.input100:focus + .focus-input100 + .symbol-input100 {
+  color: #57b846;
+  padding-left: 28px;
+}
+
+/* line 275, app/assets/stylesheets/main.scss */
+.container-login100-form-btn {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding-top: 20px;
+}
+
+/* line 286, app/assets/stylesheets/main.scss */
+.login100-form-btn {
+  font-family: Montserrat-Bold;
+  font-size: 15px;
+  line-height: 1.5;
+  color: #fff;
+  text-transform: uppercase;
+  width: 100%;
+  height: 50px;
+  border-radius: 25px;
+  background: #57b846;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 25px;
+  transition: all 0.4s;
+}
+
+/* line 309, app/assets/stylesheets/main.scss */
+.login100-form-btn:hover {
+  background: #333;
+}
+
+@media (max-width: 992px) {
+  /* line 313, app/assets/stylesheets/main.scss */
+  .wrap-login100 {
+    padding: 177px 90px 33px 85px;
+  }
+  /* line 316, app/assets/stylesheets/main.scss */
+  .login100-pic {
+    width: 35%;
+  }
+  /* line 319, app/assets/stylesheets/main.scss */
+  .login100-form {
+    width: 50%;
+  }
+}
+
+@media (max-width: 768px) {
+  /* line 324, app/assets/stylesheets/main.scss */
+  .wrap-login100 {
+    padding: 100px 80px 33px;
+  }
+  /* line 327, app/assets/stylesheets/main.scss */
+  .login100-pic {
+    display: none;
+  }
+  /* line 330, app/assets/stylesheets/main.scss */
+  .login100-form {
+    width: 100%;
+  }
+}
+
+@media (max-width: 576px) {
+  /* line 335, app/assets/stylesheets/main.scss */
+  .wrap-login100 {
+    padding: 100px 15px 33px;
+  }
+}
+
+/* line 339, app/assets/stylesheets/main.scss */
+.validate-input {
+  position: relative;
+}
+
+/* line 342, app/assets/stylesheets/main.scss */
+.alert-validate::before {
+  content: attr(data-validate);
+  position: absolute;
+  max-width: 70%;
+  background-color: #fff;
+  border: 1px solid #c80000;
+  border-radius: 13px;
+  padding: 4px 25px 4px 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 8px;
+  pointer-events: none;
+  font-family: Poppins-Medium;
+  color: #c80000;
+  font-size: 13px;
+  line-height: 1.4;
+  text-align: left;
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 0.4s;
+}
+
+/* line 370, app/assets/stylesheets/main.scss */
+.alert-validate::after {
+  content: "\f06a";
+  font-family: FontAwesome;
+  display: block;
+  position: absolute;
+  color: #c80000;
+  font-size: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 13px;
+}
+
+/* line 385, app/assets/stylesheets/main.scss */
+.alert-validate:hover:before {
+  visibility: visible;
+  opacity: 1;
+}
+
+@media (max-width: 992px) {
+  /* line 390, app/assets/stylesheets/main.scss */
+  .alert-validate::before {
+    visibility: visible;
+    opacity: 1;
+  }
+}

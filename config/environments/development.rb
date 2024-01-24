@@ -52,14 +52,24 @@ Rails.application.configure do
 
   # Raise an error on page load if there are pending migrations.
   config.active_record.migration_error = :page_load
+  config.assets.prefix = "/dev-assets"
 
   # Highlight code that triggered database queries in logs.
   config.active_record.verbose_query_logs = true
 
   # Suppress logger output for asset requests.
   config.assets.quiet = true
+# Disable Rails's static asset server (Apache or nginx will already do this)  
+config.serve_static_assets = false
 
-  # Raises error for missing translations.
+# Compress JavaScripts and CSS  
+config.assets.compress = true
+
+# Don't fallback to assets pipeline if a precompiled asset is missed  
+config.assets.compile = false
+
+# Generate digests for assets URLs  
+config.assets.digest = true  # Raises error for missing translations.
   # config.i18n.raise_on_missing_translations = true
 
   # Annotate rendered view with file names.

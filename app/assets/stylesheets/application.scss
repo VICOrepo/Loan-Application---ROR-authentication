@@ -1,8 +1,27 @@
 @import "bootstrap";
 @import "bootstrap-datepicker3";
+// app/assets/stylesheets/application.scss
+
+//= require styles
+
 
 /* You can add more styling as needed */
+.error-message {
+  font-size: 18px;
+  color: #ff6347; /* Tomato color */
+}
 
+.error-message p {
+  margin-bottom: 10px;
+}
+.admin-message{
+  font-size: 18px;
+  color: #000000; /* Bootstrap's danger color */
+  background-color: #b0e6a3; /* Bootstrap's danger background color */
+  padding: 15px;
+  border-radius: 5px;
+  margin-top: 20px;
+}
 .error-message {
   font-size: 18px;
   color: #d9534f; /* Bootstrap's danger color */
@@ -166,5 +185,17 @@ body {
   color: #007bff; /* Change color on hover if desired */
 }
 
-
-
+// .background {
+//   // background: url('<%= asset-url("growth-economy.jpg") %>') no-repeat center center fixed;
+//   background-image: url(/auth/app/assets/images/growth-economy.jpg);
+// }
+.myImage {
+  background-image: asset-url('../images/growth-economy.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  // width: 50%;
+  overflow: hidden;
+  position: fixed;
+  // height: 100%;
+}
