@@ -18,9 +18,10 @@ class UsersController < ApplicationController
     end
 end
 
-  def make_admin
-    @user = User.find(params[:id])
-    @user.update(user_role: 2) unless @user.admin?
-    redirect_to users_path, notice: 'User is now an admin.'
-  end
+def make_admin
+  @user = User.find(params[:id])
+  @user.add_role(:admin) unless @user.has_role?(:admin)
+  redirect_to users_path, notice: 'User is now an admin.'
+end
+
 end

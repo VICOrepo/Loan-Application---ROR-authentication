@@ -3,20 +3,20 @@
     <div class="jumbotron text-center">
       <h1 class="display-4">Welcome to the Loan Application Portal</h1>
       <p class="lead">Get started on your journey to financial support!</p>
+      
       <% if user_signed_in? %>
-  <% loan_button_color = user_signed_in? ? 'btn-success' : 'btn-primary' %>
+        <% loan_button_color = user_signed_in? ? 'btn-success' : 'btn-primary' %>
   
-  <% unless current_user.admin? %>
-    <%= link_to 'Loan Application', new_loan_path, class: "btn btn-lg #{loan_button_color}" %>
-    <%= link_to 'Loan Details', loans_path, class: "btn btn-lg #{loan_button_color}" %>
+        <% unless current_user.has_role?(:admin) %>
+          <%= link_to 'Loan Application', new_loan_path, class: "btn btn-lg #{loan_button_color}" %>
+          <%= link_to 'Loan Details', loans_path, class: "btn btn-lg #{loan_button_color}" %>
+        <% end %>
 
-  <% end %>
-
-  <% if current_user.admin? %>
-    <%= link_to 'Loan Details', loans_path, class: "btn btn-lg #{loan_button_color}" %>
-    <%= link_to 'All Users Details', users_path, class: "btn btn-lg #{loan_button_color}" %>
-  <% end %>
-<% end %>
+        <% if current_user.has_role?(:admin) %>
+          <%= link_to 'Loan Details', loans_path, class: "btn btn-lg #{loan_button_color}" %>
+          <%= link_to 'All Users Details', users_path, class: "btn btn-lg #{loan_button_color}" %>
+        <% end %>
+      <% end %>
     
     </div>
   </div>

@@ -5,12 +5,13 @@ class LoansController < ApplicationController
     end
   
     def index
-      if current_user&.admin?
+      if current_user&.has_role?(:admin)
         @loans = Loan.all
       else
         @loans = current_user.loans
       end
     end
+    
   
     def new
       @loan = current_user.loans.build

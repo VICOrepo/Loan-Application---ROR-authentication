@@ -1,9 +1,11 @@
 class User < ApplicationRecord
+  rolify
 
   has_many :loans
   def admin?
-    user_role == 2
+    has_role?(:admin)
   end
+  
   
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable

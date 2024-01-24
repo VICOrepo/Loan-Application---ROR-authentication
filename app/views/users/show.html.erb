@@ -17,7 +17,7 @@
             <% @users.each do |user| %>
               <tr>
                 <td class="text-center"><%= user.email %></td>
-                <td class="text-center"><%= user.user_role == 2 ? 'Admin' : 'Applicant' %></td>
+                <td class="text-center"><%= user.has_role?(:admin) ? 'Admin' : 'Applicant' %></td>
                 <td class="text-center">
                  
                   <%= button_to 'Delete', user_path(user),

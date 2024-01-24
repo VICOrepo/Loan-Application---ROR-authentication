@@ -14,6 +14,12 @@ gem "sqlite3", "~> 1.4"
 
 # bootstrap
 gem 'bootstrap', '~> 5.3.2'
+
+# rolify and cancancan
+gem 'cancancan'
+gem 'rolify'
+
+
 # datatable
 gem 'jquery-datatables-rails'
 gem 'jquery-rails'
