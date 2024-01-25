@@ -95,6 +95,12 @@ GEM
       xpath (~> 3.2)
     concurrent-ruby (1.2.3)
     crass (1.0.6)
+    database_cleaner (2.0.2)
+      database_cleaner-active_record (>= 2, < 3)
+    database_cleaner-active_record (2.1.0)
+      activerecord (>= 5.a)
+      database_cleaner-core (~> 2.0.0)
+    database_cleaner-core (2.0.1)
     date (3.3.4)
     debug (1.9.1)
       irb (~> 1.10)
@@ -109,6 +115,11 @@ GEM
     docile (1.4.0)
     erubi (1.12.0)
     execjs (2.9.1)
+    factory_bot (6.4.5)
+      activesupport (>= 5.0.0)
+    factory_bot_rails (6.4.3)
+      factory_bot (~> 6.4)
+      railties (>= 5.0.0)
     ffi (1.16.3)
     globalid (1.2.1)
       activesupport (>= 6.1)
@@ -205,6 +216,10 @@ GEM
       activesupport (= 7.0.8)
       bundler (>= 1.15.0)
       railties (= 7.0.8)
+    rails-controller-testing (1.0.5)
+      actionpack (>= 5.0.1.rc1)
+      actionview (>= 5.0.1.rc1)
+      activesupport (>= 5.0.1.rc1)
     rails-dom-testing (2.2.0)
       activesupport (>= 5.0.0)
       minitest
@@ -343,8 +358,10 @@ DEPENDENCIES
   bootstrap_pagination
   cancancan
   capybara
+  database_cleaner
   debug
   devise
+  factory_bot_rails
   importmap-rails
   jbuilder
   jquery-datatables-rails
@@ -352,6 +369,7 @@ DEPENDENCIES
   letter_opener
   puma (~> 5.0)
   rails (~> 7.0.8)
+  rails-controller-testing
   redis (~> 4.0)
   rolify
   rspec-rails

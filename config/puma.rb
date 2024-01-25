@@ -5,7 +5,8 @@
 # and maximum; this matches the default thread size of Active Record.
 #
 max_threads_count = ENV.fetch("RAILS_MAX_THREADS", 5)
-min_threads_count = ENV.fetch("PORT", 3000)
+min_threads_count = ENV.fetch("PORT", 1)
+
 threads min_threads_count, max_threads_count
 
 # Specifies the `worker_timeout` threshold that Puma will use to wait before

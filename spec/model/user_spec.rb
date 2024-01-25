@@ -1,6 +1,6 @@
 # frozen_string_literal: true
-require 'rails_helper' # Make sure this line is present and correct
 
+require 'rails_helper' # Make sure this line is present and correct
 RSpec.describe User, type: :model do
   context 'associations' do
     it 'has many loans' do
@@ -11,14 +11,11 @@ RSpec.describe User, type: :model do
 
   context 'roles' do
     it 'can be assigned the admin role' do
-      user = User.new
-      user.add_role(:admin)
-      expect(user.admin?).to be true
+      test_admin_role_assignment
     end
 
     it 'does not have admin role by default' do
-      user = User.new
-      expect(user.admin?).to be false
+      test_default_no_admin_role
     end
   end
 
@@ -43,7 +40,19 @@ RSpec.describe User, type: :model do
       expect(User.devise_modules).to include(:validatable)
     end
   end
-  
 
   # Add more tests based on your specific requirements and model logic
+
+  private
+
+  def test_admin_role_assignment
+    user = User.new
+    user.add_role(:admin)
+    expect(user.admin?).to be true
+  end
+
+  def test_default_no_admin_role
+    user = User.new
+    expect(user.admin?).to be false
+  end
 end

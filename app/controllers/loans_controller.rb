@@ -1,12 +1,6 @@
 # frozen_string_literal: true
 
-# Module comment for LoansController
-# frozen_string_literal: true
-
-# The LoansController manages loan-related actions, such as displaying,
-# creating, updating, and deleting loan applications. It interacts with the
-# Loan model and is responsible for rendering the corresponding views.
-
+# LoansController handles the logic for managing loans.
 class LoansController < ApplicationController
   before_action :set_user, only: %i[show edit update destroy]
 

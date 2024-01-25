@@ -55,9 +55,14 @@
       </div>
     </nav>
     
-    <% flash.each do |name, msg| %> <% if msg.is_a?(String) %>
-    <div class="flash-<%= name %>"><%= msg %></div>
-    <% end %> <% end %>
+    <% flash.each do |name, msg| %>
+      <% if msg.is_a?(String) %>
+        <div class="flash-<%= name %> alert">
+          <%= msg %>
+          <button class="close-btn" onclick="this.parentElement.style.display='none';">&times;</button>
+        </div>
+      <% end %>
+    <% end %>
      <%= yield %>
 
 

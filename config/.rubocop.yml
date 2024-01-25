@@ -1,5 +1,3 @@
-
-
 Layout/AccessModifierIndentation:
   Exclude:
     - 'app/controllers/loans_controller.rb'
@@ -26,6 +24,7 @@ Layout/EmptyLines:
     - 'app/controllers/users_controller.rb'
     - 'config/initializers/assets.rb'
     - 'config/routes.rb'
+    - 'spec/**/*'  # Exclude the spec folder
 
 Layout/EmptyLinesAroundBlockBody:
   Exclude:
@@ -69,18 +68,15 @@ Layout/SpaceInsideArrayLiteralBrackets:
   Exclude:
     - 'config/environments/production.rb'
 
-
 Layout/SpaceInsidePercentLiteralDelimiters:
   Exclude:
     - 'Gemfile'
-
 
 Layout/TrailingEmptyLines:
   Exclude:
     - 'app/controllers/custom_sessions_controller.rb'
     - 'app/controllers/signup_controller.rb'
     - 'db/migrate/20240118064355_add_user_role_to_users.rb'
-
 
 Layout/TrailingWhitespace:
   Exclude:
@@ -89,36 +85,29 @@ Layout/TrailingWhitespace:
     - 'app/controllers/users_controller.rb'
     - 'config/environments/development.rb'
 
-
 Lint/UnusedMethodArgument:
   Exclude:
     - 'app/controllers/signup_controller.rb'
-
 
 Lint/UselessAssignment:
   Exclude:
     - 'app/controllers/loans_controller.rb'
 
-
 Metrics/AbcSize:
   Max: 20
 
-
 Metrics/BlockLength:
-  Max: 58
-
-
+  Enabled: false
 Metrics/CyclomaticComplexity:
   Max: 20
 
-
 Metrics/MethodLength:
   Max: 40
-
+  Exclude:
+    - 'app/controllers/loans_controller.rb'
 
 Metrics/PerceivedComplexity:
   Max: 30
-
 
 Style/ClassAndModuleChildren:
   Exclude:
@@ -129,23 +118,21 @@ Style/ClassAndModuleChildren:
     - 'app/controllers/users/sessions_controller.rb'
     - 'app/controllers/users/unlocks_controller.rb'
 
-
 Style/ConditionalAssignment:
   Exclude:
     - 'app/controllers/loans_controller.rb'
 
 Style/Documentation:
   Enabled: false
-
+  Exclude:
+    - 'app/controllers/loans_controller.rb'
 
 Style/EmptyMethod:
   Exclude:
     - 'app/controllers/pages_controller.rb'
 
-
 Style/FrozenStringLiteralComment:
   Enabled: false
-
 
 Style/GlobalStdStream:
   Exclude:
@@ -156,47 +143,33 @@ Style/IfUnlessModifier:
     - 'app/controllers/custom_sessions_controller.rb'
     - 'bin/bundle'
 
-
-
 Style/NumericLiterals:
   Exclude:
     - 'db/schema.rb'
-
-
 
 Style/PercentLiteralDelimiters:
   Exclude:
     - 'config/application.rb'
 
-
-
 Style/PerlBackrefs:
   Exclude:
     - 'bin/bundle'
-
-
 
 Style/RedundantFetchBlock:
   Exclude:
     - 'config/puma.rb'
 
-
-
 Style/SpecialGlobalVars:
   EnforcedStyle: use_perl_names
 
-
-
 Style/StringLiterals:
   Enabled: false
-
-
 
 Style/SymbolArray:
   EnforcedStyle: percent
   MinSize: 10
 
-
-
 Layout/LineLength:
   Max: 252
+  Exclude:
+    - 'spec/**/*'

@@ -71,13 +71,14 @@
     <div class="d-flex justify-content-end">
       <div class="justify-content-around">
         <% if current_user && current_user.admin? %>
-        <%= link_to 'All Users Details', users_path, class: 'btn btn-success mr-2' %>
-          <%= link_to 'Back', root_path, class: 'btn btn-dark mr-3' %>
+          <% if @loans.present? %>
+            <%= link_to 'All Users Details', users_path, class: 'btn btn-success mr-2' %>
+          <% end %>
         <% else %>
-          <%= link_to 'Explore Opportunities', new_loan_path, class: 'btn btn-success mr-3' %>
-          <%= link_to 'Back', root_path, class: 'btn btn-dark mr-3' %>
+          <% if @loans.present? %>
+            <%= link_to 'Explore Opportunities', new_loan_path, class: 'btn btn-success mr-3' %>
+          <% end %>
         <% end %>
-
       </div>
     </div>
     
