@@ -1,15 +1,48 @@
 # .rubocop.yml
 
+# Set the Ruby version (uncomment and adjust as needed)
 # AllCops:
-#  TargetRubyVersion: 2.7
+#   TargetRubyVersion: X.Y
 
 # Enable/disable cops. Many of the defaults are shown below. Omitted
 # cops are either enabled by default or have no default values.
 
-# Style/Documentation
-#   Enabled: false
+# Layout/EmptyLines
+Layout/EmptyLines:
+  Enabled: false
 
-# Layout/IndentationWidth:
-#   Enabled: false
+# Metrics/BlockLength
+Metrics/BlockLength:
+  Exclude:
+    - 'Rakefile'
+
+# Layout/LineLength
+Layout/LineLength:
+  Max: 120
+
+# Naming/MethodName
+Naming/MethodName:
+  Exclude:
+    - 'config/routes.rb'
+
+# Style/TrailingCommaInHashLiteral
+Style/TrailingCommaInHashLiteral:
+  Enabled: false
+
+# Layout/IndentationWidth
+Layout/IndentationWidth:
+  Enabled: false
+
+# Lint/RedundantCopDisableDirective
+Lint/RedundantCopDisableDirective:
+  Enabled: false
+
+# Remove deprecated Rails cops (now part of rubocop-rails gem)
+AllCops:
+  Exclude:
+    - 'Rails'
+
+# Remove the configuration for Lint/Syntax
+# (You cannot disable this cop through the configuration file)
 
 # Add your custom configurations and overrides here
