@@ -1,9 +1,10 @@
+# frozen_string_literal: true
+
+# Module comment for CustomController
 class CustomController < Devise::SessionsController
-    def create
-        super do |resource|
-          if resource.has_role?(:admin)
-            redirect_to root_path and return
-          end
-        end
-     end
+  def create
+    super do |resource|
+      redirect_to root_path and return if resource.has_role?(:admin)
+    end
+  end
 end

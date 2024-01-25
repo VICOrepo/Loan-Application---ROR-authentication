@@ -1,47 +1,54 @@
-class LoansController < ApplicationController
-  before_action :set_user, only: [:show, :edit, :update, :destroy]
+# frozen_string_literal: true
 
-  def show
-  end
+# Module comment for LoansController
+# frozen_string_literal: true
+
+# The LoansController manages loan-related actions, such as displaying,
+# creating, updating, and deleting loan applications. It interacts with the
+# Loan model and is responsible for rendering the corresponding views.
+
+class LoansController < ApplicationController
+  before_action :set_user, only: %i[show edit update destroy]
+
+  def show; end
 
   def index
-    if current_user.has_role?(:admin)
-      @loans = Loan.all
-    else
-      @loans = current_user.loans
-    end
+    @loans = if current_user.has_role?(:admin)
+               Loan.all
+             else
+               current_user.loans
+             end
   end
 
   def new
     @loan = current_user.loans.build
   end
 
-  def edit
-  end
+  def edit; end
 
   def create
     @loan = current_user.loans.build(loan_params)
     if @loan.save
-      flash[:notice] = "Application has been created successfully."
+      flash[:notice] = 'Application has been created successfully.'
       redirect_to @loan
     else
-      redirect_to new_loan_path, alert: @loan.errors.full_messages.join(", ")
+      redirect_to new_loan_path, alert: @loan.errors.full_messages.join(', ')
     end
   end
 
   def update
     if @loan.update(loan_params)
-      flash[:notice] = "Application has been updated successfully."
+      flash[:notice] = 'Application has been updated successfully.'
       redirect_to @loan
     else
-      redirect_to edit_loan_path, alert: @loan.errors.full_messages.join(", ")
+      redirect_to edit_loan_path, alert: @loan.errors.full_messages.join(', ')
     end
   end
 
   def destroy
     @loan = Loan.find(params[:id])
     @loan.destroy
-    flash[:alert] = "Application has been deleted successfully."
+    flash[:alert] = 'Application has been deleted successfully.'
     redirect_to loans_path
   end
 

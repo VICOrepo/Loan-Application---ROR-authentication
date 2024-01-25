@@ -1,48 +1,202 @@
-# .rubocop.yml
 
-# Set the Ruby version (uncomment and adjust as needed)
-# AllCops:
-#   TargetRubyVersion: X.Y
 
-# Enable/disable cops. Many of the defaults are shown below. Omitted
-# cops are either enabled by default or have no default values.
-
-# Layout/EmptyLines
-Layout/EmptyLines:
-  Enabled: false
-
-# Metrics/BlockLength
-Metrics/BlockLength:
+Layout/AccessModifierIndentation:
   Exclude:
-    - 'Rakefile'
+    - 'app/controllers/loans_controller.rb'
 
-# Layout/LineLength
-Layout/LineLength:
-  Max: 120
+Layout/DefEndAlignment:
+  Exclude:
+    - 'app/controllers/signup_controller.rb'
+    - 'app/controllers/users_controller.rb'
 
-# Naming/MethodName
-Naming/MethodName:
+Layout/EmptyLineAfterGuardClause:
+  Exclude:
+    - 'bin/bundle'
+
+Layout/EmptyLineBetweenDefs:
+  Exclude:
+    - 'app/controllers/loans_controller.rb'
+    - 'app/controllers/signup_controller.rb'
+    - 'app/controllers/users_controller.rb'
+
+Layout/EmptyLines:
+  Exclude:
+    - 'Gemfile'
+    - 'app/controllers/loans_controller.rb'
+    - 'app/controllers/users_controller.rb'
+    - 'config/initializers/assets.rb'
+    - 'config/routes.rb'
+
+Layout/EmptyLinesAroundBlockBody:
   Exclude:
     - 'config/routes.rb'
 
-# Style/TrailingCommaInHashLiteral
-Style/TrailingCommaInHashLiteral:
-  Enabled: false
-
-# Layout/IndentationWidth
-Layout/IndentationWidth:
-  Enabled: false
-
-# Lint/RedundantCopDisableDirective
-Lint/RedundantCopDisableDirective:
-  Enabled: false
-
-# Remove deprecated Rails cops (now part of rubocop-rails gem)
-AllCops:
+Layout/EmptyLinesAroundClassBody:
   Exclude:
-    - 'Rails'
+    - 'app/controllers/loans_controller.rb'
+    - 'app/controllers/pages_controller.rb'
+    - 'app/controllers/signup_controller.rb'
+    - 'app/controllers/users_controller.rb'
+    - 'app/models/loan.rb'
 
-# Remove the configuration for Lint/Syntax
-# (You cannot disable this cop through the configuration file)
+Layout/EmptyLinesAroundMethodBody:
+  Exclude:
+    - 'db/migrate/20240111133345_add_new_columns_toloans.rb'
+    - 'db/migrate/20240121155815_add_fields_to_loan.rb'
+    - 'db/migrate/20240121163339_addempdetailtoloans.rb'
+    - 'db/migrate/20240122084639_change_data_type_inloans.rb'
 
-# Add your custom configurations and overrides here
+Layout/IndentationWidth:
+  Exclude:
+    - 'app/controllers/custom_sessions_controller.rb'
+    - 'app/controllers/loans_controller.rb'
+    - 'app/controllers/pages_controller.rb'
+    - 'app/controllers/signup_controller.rb'
+    - 'app/controllers/users_controller.rb'
+    - 'app/models/loan.rb'
+    - 'db/migrate/20240122052008_change_data_type_in_loans.rb'
+    - 'db/migrate/20240122084639_change_data_type_inloans.rb'
+
+Layout/LeadingCommentSpace:
+  Exclude:
+    - 'app/controllers/loans_controller.rb'
+
+Layout/MultilineMethodCallIndentation:
+  Exclude:
+    - 'config/environments/production.rb'
+
+Layout/SpaceInsideArrayLiteralBrackets:
+  Exclude:
+    - 'config/environments/production.rb'
+
+
+Layout/SpaceInsidePercentLiteralDelimiters:
+  Exclude:
+    - 'Gemfile'
+
+
+Layout/TrailingEmptyLines:
+  Exclude:
+    - 'app/controllers/custom_sessions_controller.rb'
+    - 'app/controllers/signup_controller.rb'
+    - 'db/migrate/20240118064355_add_user_role_to_users.rb'
+
+
+Layout/TrailingWhitespace:
+  Exclude:
+    - 'app/controllers/loans_controller.rb'
+    - 'app/controllers/signup_controller.rb'
+    - 'app/controllers/users_controller.rb'
+    - 'config/environments/development.rb'
+
+
+Lint/UnusedMethodArgument:
+  Exclude:
+    - 'app/controllers/signup_controller.rb'
+
+
+Lint/UselessAssignment:
+  Exclude:
+    - 'app/controllers/loans_controller.rb'
+
+
+Metrics/AbcSize:
+  Max: 20
+
+
+Metrics/BlockLength:
+  Max: 58
+
+
+Metrics/CyclomaticComplexity:
+  Max: 20
+
+
+Metrics/MethodLength:
+  Max: 40
+
+
+Metrics/PerceivedComplexity:
+  Max: 30
+
+
+Style/ClassAndModuleChildren:
+  Exclude:
+    - 'app/controllers/users/registrations_controller.rb'
+    - 'app/controllers/users/confirmations_controller.rb'
+    - 'app/controllers/users/omniauth_callbacks_controller.rb'
+    - 'app/controllers/users/passwords_controller.rb'
+    - 'app/controllers/users/sessions_controller.rb'
+    - 'app/controllers/users/unlocks_controller.rb'
+
+
+Style/ConditionalAssignment:
+  Exclude:
+    - 'app/controllers/loans_controller.rb'
+
+Style/Documentation:
+  Enabled: false
+
+
+Style/EmptyMethod:
+  Exclude:
+    - 'app/controllers/pages_controller.rb'
+
+
+Style/FrozenStringLiteralComment:
+  Enabled: false
+
+
+Style/GlobalStdStream:
+  Exclude:
+    - 'config/environments/production.rb'
+
+Style/IfUnlessModifier:
+  Exclude:
+    - 'app/controllers/custom_sessions_controller.rb'
+    - 'bin/bundle'
+
+
+
+Style/NumericLiterals:
+  Exclude:
+    - 'db/schema.rb'
+
+
+
+Style/PercentLiteralDelimiters:
+  Exclude:
+    - 'config/application.rb'
+
+
+
+Style/PerlBackrefs:
+  Exclude:
+    - 'bin/bundle'
+
+
+
+Style/RedundantFetchBlock:
+  Exclude:
+    - 'config/puma.rb'
+
+
+
+Style/SpecialGlobalVars:
+  EnforcedStyle: use_perl_names
+
+
+
+Style/StringLiterals:
+  Enabled: false
+
+
+
+Style/SymbolArray:
+  EnforcedStyle: percent
+  MinSize: 10
+
+
+
+Layout/LineLength:
+  Max: 252

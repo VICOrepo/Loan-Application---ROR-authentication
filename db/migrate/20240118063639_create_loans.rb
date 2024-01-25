@@ -1,3 +1,6 @@
+# frozen_string_literal: true
+
+# Module comment for CreateLoans
 class CreateLoans < ActiveRecord::Migration[7.0]
   def change
     create_table :loans do |t|
@@ -13,14 +16,14 @@ class CreateLoans < ActiveRecord::Migration[7.0]
       t.string :profession
       t.string :address
       t.string :home_number  # Added: Home Number
-      t.string :street_address2  # Added: Street Address 2
-      t.string :city  # Added: City
-      t.string :state  # Added: State
-      t.integer :zip  # Added: Zip
-      t.string :residence_type  # Added: Residence Type
+      t.string :street_address2 # Added: Street Address 2
+      t.string :city # Added: City
+      t.string :state # Added: State
+      t.integer :zip # Added: Zip
+      t.string :residence_type # Added: Residence Type
       t.string :annual_income  # Added: Annual Income
       t.string :employer_name  # Added: Employer Name
-      t.string :employer_phone  # Added: Employer Phone
+      t.string :employer_phone # Added: Employer Phone
       t.timestamps
     end
   end

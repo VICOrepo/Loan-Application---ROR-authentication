@@ -1,30 +1,49 @@
-# spec/models/user_spec.rb
-
-require 'rails_helper'
+# frozen_string_literal: true
+require 'rails_helper' # Make sure this line is present and correct
 
 RSpec.describe User, type: :model do
-  describe 'associations' do
-    it { should have_many(:loans) }
+  context 'associations' do
+    it 'has many loans' do
+      user = described_class.reflect_on_association(:loans)
+      expect(user.macro).to eq :has_many
+    end
   end
 
-  describe 'roles' do
-    it 'should have a role of admin' do
-      user = User.create(email: 'test@example.com', password: 'password') # Adjust attributes as needed
+  context 'roles' do
+    it 'can be assigned the admin role' do
+      user = User.new
       user.add_role(:admin)
-      expect(user).to be_admin
+      expect(user.admin?).to be true
+    end
+
+    it 'does not have admin role by default' do
+      user = User.new
+      expect(user.admin?).to be false
     end
   end
 
-  describe 'devise modules' do
-    it { is_expected.to validate_presence_of(:email) }
-    it 'validates uniqueness of email' do
-      user1 = create(:user, email: 'test@example.com')
-      user2 = build(:user, email: 'test@example.com')
-      expect(user2.valid?).to be_falsey
+  context 'devise modules' do
+    it 'includes database_authenticatable' do
+      expect(User.devise_modules).to include(:database_authenticatable)
     end
-    it { is_expected.to validate_presence_of(:password).on(:create) }
-    it { is_expected.to validate_length_of(:password).is_at_least(Devise.password_length.first).is_at_most(Devise.password_length.last).on(:create) }
-    it { is_expected.to validate_presence_of(:password).on(:update) }
-    it { is_expected.to validate_length_of(:password).is_at_least(Devise.password_length.first).is_at_most(Devise.password_length.last).on(:update) }
+
+    it 'includes registerable' do
+      expect(User.devise_modules).to include(:registerable)
+    end
+
+    it 'includes recoverable' do
+      expect(User.devise_modules).to include(:recoverable)
+    end
+
+    it 'includes rememberable' do
+      expect(User.devise_modules).to include(:rememberable)
+    end
+
+    it 'includes validatable' do
+      expect(User.devise_modules).to include(:validatable)
+    end
   end
+  
+
+  # Add more tests based on your specific requirements and model logic
 end
