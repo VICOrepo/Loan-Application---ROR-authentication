@@ -7,16 +7,28 @@ class LoansController < ApplicationController
   def show; end
 
   def index
-    @loans = if current_user.has_role?(:admin)
-               Loan.all
-             else
-               current_user.loans
-             end
+    if user_signed_in?
+      @loans = if current_user.has_role?(:admin)
+                 Loan.all
+               else
+                 current_user.loans
+               end
+    else
+      flash[:alert] = "You have to sign up or login before accessing this page."
+      redirect_to new_user_session_path
+    end
   end
+  
 
   def new
-    @loan = current_user.loans.build
+    if user_signed_in?
+      @loan = current_user.loans.build
+    else
+      flash[:alert] = "You have to sign up or login before creating a new loan."
+      redirect_to new_user_session_path
+    end
   end
+  
 
   def edit; end
 

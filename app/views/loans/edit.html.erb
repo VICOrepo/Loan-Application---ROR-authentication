@@ -1,12 +1,12 @@
 <style>
   /* Add this style block to the head of your HTML or link to your external stylesheet */
   .card {
-    box-shadow: 0 4px 8px rgba(1, 114, 6, 0.692); /* Adjust the values to your preference */
+    box-shadow: 0 4px 8px rgba(17, 17, 17, 0.692); /* Adjust the values to your preference */
   }
 </style>
 <%= form_with model: @loan, class: "form" do |form| %>
 
-<body style="background-color: rgb(153, 245, 153)">
+<body style="background: linear-gradient(to right, #4CAF50, #c5e9c7);"">
   <div class="container mb-5">
     <br>
   <div class="card mb-5">
@@ -211,9 +211,17 @@
     <div class="d-flex justify-content-end">
       <%= link_to 'Cancel', root_path, class: 'btn btn-dark mr-3' %>
     </div> </div>
-<br>
 
-
+    <footer class="footer mt-5 text-green">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12 text-center">
+            <p>&copy; 2024 Loan Application Portal</p>
+            <p>Created by Viral</p>
+          </div>
+        </div>
+      </div>
+</footer>
 
 <script>
  function formatSSN(input) {
