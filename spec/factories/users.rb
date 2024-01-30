@@ -1,13 +1,17 @@
 # frozen_string_literal: true
 
 # spec/factories/users.rb
-
+require 'faker'
 FactoryBot.define do
   factory :user do
-    email { 'user@example.com' }
+    email { Faker::Internet.email }
     password { 'password' }
 
-    # Assuming you have a field named authentication_token
-    authentication_token { 'sample_token' }
+    after(:create) do |user|
+      user.roles << create(:role)
+    end
+    trait :admin do
+      after(:create) { |user| user.roles << create(:role, name: 'admin') }
+    end
   end
 end

@@ -21,18 +21,11 @@ class UsersController < ApplicationController
     end
   end
 
-  def make_admin
-    @user = User.find(params[:id])
-    @user.add_role(:admin) unless @user.has_role?(:admin)
-    redirect_to users_path, notice: 'User is now an admin.'
-  end
-
   private
 
   def check_user_role
     puts 'Checking user role...'
     return if current_user&.has_role?(:admin)
-
     flash[:alert] = 'You do not have access to this page.'
     redirect_to root_path
   end

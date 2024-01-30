@@ -5,80 +5,141 @@
 require 'rails_helper'
 
 RSpec.describe LoansController, type: :controller do
-  let(:user) { User.create(email: 'user@example.com', password: 'password') }
+  let(:user) { create(:user) }
+  let(:admin_user) { create(:user, :admin) }
+  let(:loan_params) { attributes_for(:loan) }
 
-  before do
-    sign_in user # Assuming you have authentication set up
-  end
+  describe '#index' do
+    let(:user) { create(:user) } 
+    let(:admin_user) { create(:user, :admin) } 
 
-  describe 'GET #show' do
-    # it 'renders the show template' do
-    # #   loan = Loan.create(user: user)
-    # #   get :show, params: { id: loan.id }
-    # #   expect(response).to render_template(:show)
-    # end
-  end
-
-  describe 'GET #index' do
-    # it 'renders the index template' do
-    # #   get :index
-    # #   expect(response).to render_template(:index)
-    # end
-
-    context 'when user has admin role' do
-      #   let(:user) { User.create(email: 'admin@example.com', password: 'password', roles: [:admin]) }
-
-      #   it 'loads all loans for admin' do
-      #     # loan = Loan.create
-      #     # get :index
-      #     # expect(assigns(:loans)).to eq([loan])
-      #   end
+    context 'when not signed in' do
+      it 'redirects to sign-in page' do
+        get :index
+        expect(response).to redirect_to(new_user_session_path)
+      end
     end
 
-    context 'when user does not have admin role' do
-      #   it 'loads user loans' do
-      #     # loan = Loan.create(user: user)
-      #     # get :index
-      #     # expect(assigns(:loans)).to eq([loan])
-      #   end
+    context 'when signed in' do
+      before do
+        sign_in user
+      end
+
+      it 'renders the index template for signed-in users' do
+        get :index
+        expect(response).to render_template(:index)
+      end
+
+      it 'assigns loans to @loans for admin users' do
+        sign_in admin_user
+        get :index
+        expect(assigns(:loans)).to eq(Loan.all)
+      end
+
+      it 'assigns user loans to @loans for non-admin users' do
+        get :index
+        expect(assigns(:loans)).to eq(user.loans)
+      end
     end
   end
 
-  describe 'GET #new' do
-    # it 'renders the new template' do
-    # #   get :new
-    # #   expect(response).to render_template(:new)
-    # end
+  describe '#new' do
+    it 'redirects to sign-in page when not signed in' do
+      get :new
+      expect(response).to redirect_to(new_user_session_path)
+    end
+
+    it 'renders the new template for signed-in users' do
+      sign_in user
+      get :new
+      expect(response).to render_template(:new)
+    end
+
+    it 'assigns a new loan to @loan for signed-in users' do
+      sign_in user
+      get :new
+      expect(assigns(:loan)).to be_a_new(Loan)
+    end
   end
 
-  describe 'POST #create' do
-    # let(:valid_loan_params) { { name: 'John Doe', amount: 1000 } }
-
-    # it 'creates a new loan' do
-    # #   expect do
-    # #     post :create, params: { loan: valid_loan_params }
-    # #   end.to change(Loan, :count).by(1)
-
-    # #   expect(response).to redirect_to(assigns(:loan))
-    # end
+  describe '#create' do
+    it 'creates a new loan for signed-in users with valid parameters' do
+      sign_in user
+      puts "loan_params: #{loan_params}"
+      expect do
+        post :create, params: { loan: loan_params }
+      end.to change(Loan, :count).by(1)
+      expect(response).to redirect_to(Loan.last)
+    end
   end
 
-  describe 'GET #edit' do
-    # it 'renders the edit template' do
-    # #   loan = Loan.create(user: user)
-    # #   get :edit, params: { id: loan.id }
-    # #   expect(response).to render_template(:edit)
-    # end
+  describe '#edit' do
+    it 'redirects to sign-in page when not signed in' do
+      loan = create(:loan)
+      get :edit, params: { id: loan.id }
+      expect(response).to redirect_to(new_user_session_path)
+    end
+
+    it 'renders the edit template for signed-in users' do
+      user = create(:user)
+      loan = create(:loan, user:)
+      sign_in user
+      get :edit, params: { id: loan.id }
+      expect(response).to render_template(:edit)
+    end
   end
 
-  describe 'PUT #update' do
-    # let(:loan) { Loan.create(user: user) }
-    # let(:updated_loan_params) { { amount: 2000 } }
+  describe '#update' do
+    let(:loan) do
+      instance_double('Loan', id: 1, update: false, errors: double('Errors', full_messages: ['Some error']))
+    end
 
-    # it 'updates the loan' do
-    # #   put :update, params: { id: loan.id, loan: updated_loan_params }
-    # #   expect(response).to redirect_to(assigns(:loan))
-    # #   expect(loan.reload.amount).to eq(2000)
-    # end
+    before do
+      allow(Loan).to receive(:find).and_return(loan)
+    end
+
+    context 'when the loan is successfully updated' do
+      it 'redirects to the loan show page with a notice' do
+        allow(loan).to receive(:update).and_return(true)
+
+        put :update, params: { id: 1, loan: { attribute: 'new_value' } }
+
+        expect(flash[:notice]).to eq('Application has been updated successfully.')
+        expect(response).to redirect_to(loan_path(loan.id))
+      end
+    end
+
+    context 'when the loan update fails' do
+      it 'redirects to edit_loan_path with an alert' do
+        allow(loan).to receive(:update).and_return(false)
+
+        put :update, params: { id: 1, loan: { attribute: 'new_value' } }
+
+        expect(response).to redirect_to(edit_loan_path(loan.id))
+        expect(flash[:alert]).to eq('Some error') # Check for the specific error message
+      end
+    end
+  end
+
+  describe '#destroy' do
+    let(:loan) { instance_double('Loan', destroy: true) }
+
+    before do
+      allow(Loan).to receive(:find).and_return(loan)
+    end
+
+    it 'destroys the loan and redirects to loans index with an alert' do
+      delete :destroy, params: { id: 1 }
+
+      expect(flash[:alert]).to eq('Application has been deleted successfully.')
+      expect(response).to redirect_to(loans_path)
+    end
+
+    it 'finds the correct loan and calls destroy on it' do
+      expect(Loan).to receive(:find).with('1').and_return(loan)
+      expect(loan).to receive(:destroy)
+
+      delete :destroy, params: { id: 1 }
+    end
   end
 end

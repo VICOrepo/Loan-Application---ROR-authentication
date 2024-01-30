@@ -14,21 +14,19 @@ class LoansController < ApplicationController
                  current_user.loans
                end
     else
-      flash[:alert] = "You have to sign up or login before accessing this page."
+      flash[:alert] = 'You have to sign up or login before accessing this page.'
       redirect_to new_user_session_path
     end
   end
-  
 
   def new
     if user_signed_in?
       @loan = current_user.loans.build
     else
-      flash[:alert] = "You have to sign up or login before creating a new loan."
+      flash[:alert] = 'You have to sign up or login before creating a new loan.'
       redirect_to new_user_session_path
     end
   end
-  
 
   def edit; end
 
@@ -38,6 +36,7 @@ class LoansController < ApplicationController
       flash[:notice] = 'Application has been created successfully.'
       redirect_to @loan
     else
+      puts "Errors: #{@loan.errors.full_messages}"
       redirect_to new_loan_path, alert: @loan.errors.full_messages.join(', ')
     end
   end
@@ -45,7 +44,7 @@ class LoansController < ApplicationController
   def update
     if @loan.update(loan_params)
       flash[:notice] = 'Application has been updated successfully.'
-      redirect_to @loan
+      redirect_to loan_path
     else
       redirect_to edit_loan_path, alert: @loan.errors.full_messages.join(', ')
     end

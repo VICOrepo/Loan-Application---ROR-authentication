@@ -31,17 +31,4 @@ RSpec.describe Users::ConfirmationsController, type: :controller do
       #   expect(response).to have_http_status(:ok)
     end
   end
-
-  # Uncomment and customize the following examples if you override the protected methods
-  # describe '#after_resending_confirmation_instructions_path_for' do
-  #   it 'returns the expected path' do
-  #     expect(controller.after_resending_confirmation_instructions_path_for(:user)).to eq(expected_path)
-  #   end
-  # end
-
-  # describe '#after_confirmation_path_for' do
-  #   it 'returns the expected path' do
-  #     expect(controller.after_confirmation_path_for(:user, user)).to eq(expected_path)
-  #   end
-  # end
 end

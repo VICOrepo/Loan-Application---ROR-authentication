@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 # This file is copied to spec/ when you run 'rails generate rspec:install'
+require 'devise'
 require 'spec_helper'
 require 'support/simplecov' if ENV['COVERAGE']
 ENV['RAILS_ENV'] ||= 'test'
@@ -42,7 +43,9 @@ end
 require 'factory_bot_rails'
 require 'database_cleaner'
 DatabaseCleaner.strategy = :transaction
+
 RSpec.configure do |config|
+  config.include Devise::Test::ControllerHelpers, type: :controller
   # Remove this line if you're not using ActiveRecord or ActiveRecord fixtures
   config.fixture_path = Rails.root.join('spec/fixtures')
   config.include FactoryBot::Syntax::Methods
